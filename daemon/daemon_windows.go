@@ -601,7 +601,7 @@ func (daemon *Daemon) setDefaultIsolation() error {
 	// should not be removed. Ping @jhowardmsft is there are PRs to
 	// to change this.
 	if system.IsWindowsClient() {
-		daemon.defaultIsolation = containertypes.Isolation("hyperv")
+//		daemon.defaultIsolation = containertypes.Isolation("hyperv")
 	}
 	for _, option := range daemon.configStore.ExecOptions {
 		key, val, err := parsers.ParseKeyValueOpt(option)
@@ -623,7 +623,7 @@ func (daemon *Daemon) setDefaultIsolation() error {
 					// On RS5, we allow (but don't strictly support) process isolation on Client SKUs.
 					// @engine maintainers. This block should not be removed. It partially enforces licensing
 					// restrictions on Windows. Ping @jhowardmsft if there are concerns or PRs to change this.
-					return fmt.Errorf("Windows client operating systems earlier than version 1809 can only run Hyper-V containers")
+					//return fmt.Errorf("Windows client operating systems earlier than version 1809 can only run Hyper-V containers")
 				}
 				daemon.defaultIsolation = containertypes.Isolation("process")
 			}
